@@ -12,3 +12,12 @@ Domain adaptation, which bridges the distributions across different modalities, 
 ```bash
 python train.py --dataroot dataroot --name your_exp_name
 ```
+
+
+
+## Evaluate ART Model
+
+
+```bash
+python test.py --dataroot dataroot --name your_exp_name
+```

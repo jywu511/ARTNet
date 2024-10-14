@@ -1,4 +1,4 @@
-Code of ARTNet.
+# ARTNet: An Artifact-Resilient Translation Network for Endoluminal Navigation
 
 ## Abstract
 

@@ -274,29 +274,7 @@ class CUTModel(BaseModel):
     def backward_D_B_2(self):
         """Calculate GAN loss for discriminator D_B"""
         fake_A_2 = self.fake_A_pool_2.query(self.fake_A_2)
-        # 这里其实为了提高discrimination的效果，也就是我们所说的clean的回路，可能需要的是real_B而不是fake_B，
-        # 虽然输入的是fake_B，这里不是严格的cycle
         self.loss_D_B_2 = self.backward_D_basic(self.netD_B_2, self.real_B.detach(), fake_A_2)
-
-
-
-
-
-    # def compute_D_loss(self):
-    #     """Calculate GAN loss for the discriminator"""
-    #     fake = self.fake_B.detach()
-    #     # Fake; stop backprop to the generator by detaching fake_B
-    #     pred_fake = self.netD(fake)
-    #     self.loss_D_fake = self.criterionGAN(pred_fake, False).mean()
-    #     # Real
-    #     self.pred_real = self.netD(self.real_B)
-    #     loss_D_real = self.criterionGAN(self.pred_real, True)
-    #     self.loss_D_real = loss_D_real.mean()
-
-    #     # combine loss and calculate gradients
-    #     self.loss_D = (self.loss_D_fake + self.loss_D_real) * 0.5
-    #     return self.loss_D
-
 
 
 
@@ -319,9 +297,6 @@ class CUTModel(BaseModel):
             self.loss_idt_A = 0
             self.loss_idt_B = 0
 
-        #if epoch > 30:
-        # Identity loss
-        # 这一块可能有问题，identity的loss太强了
         
         if lambda_idt > 0:
             # G_A should be identity if real_B is fed: ||G_A(B) - B||
@@ -333,10 +308,6 @@ class CUTModel(BaseModel):
         else:
             self.loss_idt_A_2 = 0
             self.loss_idt_B_2 = 0
-
-
-        # self.loss_idt_A_2 = 0
-        # self.loss_idt_B_2 = 0
 
 
 
@@ -368,14 +339,6 @@ class CUTModel(BaseModel):
         self.loss_cycle_A_2 = self.criterionCycle(self.rec_A_2, self.fake_B) * lambda_A
         # Backward cycle loss || G_A(G_B(B)) - B||
         self.loss_cycle_B_2 = self.criterionCycle(self.rec_B_2, self.real_B_virtual) * lambda_B
-
-
-        # if self.opt.lambda_NCE > 0.0:
-        #     self.loss_NCE_2 = self.calculate_NCE_loss(self.fake_B, self.fake_B_2)
-        #     self.loss_NCE_cycle_2 = self.calculate_NCE_loss(self.real_B, self.fake_A) 
-        # else:
-        #     self.loss_NCE, self.loss_NCE_bd = 0.0, 0.0
-
 
 
         # combined loss and calculate gradients

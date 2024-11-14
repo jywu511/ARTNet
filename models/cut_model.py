@@ -209,8 +209,6 @@ class CUTModel(BaseModel):
         feat_q = self.netG_A(self.real_A, self.nce_layers, encode_only=True)
         #print('feat_q shape is ', feat_q[-1].shape)
         self.i += 1
-        # with open('/mnt/data/jywu/code/cut_unify/contrastive-unpaired-translation-master/results/0510_ours_sample_dir3_clean/feature_map/feat_q_cut_ours' + str(self.i) + '.pickle', 'wb') as f:
-        #     pickle.dump(feat_q, f)
 
 
         self.fake_B = self.netG_A(self.real_A)  # G_A(A)
@@ -218,7 +216,6 @@ class CUTModel(BaseModel):
         self.fake_A = self.netG_B(self.real_B)  # G_B(B)
         self.rec_B = self.netG_A(self.fake_A)   # G_A(G_B(B))
 
-        # fake_B是clean real，fake_B_2是clean virtual
         self.fake_B_2 = self.netG_A_2(self.fake_B)
         self.rec_A_2 = self.netG_B_2(self.fake_B_2) 
         self.fake_A_2 = self.netG_B_2(self.real_B_virtual) 

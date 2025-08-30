@@ -1,4 +1,4 @@
-# ARTNet: An Artifact-Resilient Translation Network for Endoluminal Navigation
+# ARTNet: An Artifact-Resilient Translation Network for Endoluminal Robot Navigation
 
 ## Abstract
 
@@ -7,15 +7,15 @@ Domain adaptation, which bridges the distributions across different modalities, 
 
 ## Quick start
 We public a trained ART in .
-You can test its robustness against artifacts using examples.png from dataset.
+You can test its robustness against artifacts using examples.png from CDFI dataset.
 
 ## Data preparation
-For C3VD dataset, you can follow 
+For C3VD dataset, you can follow [C3VD](https://durrlab.github.io/C3VD/).
 
 
 ## Synthetic artifact generation
 
-We follow the imagecorruption to generate artificial noise. 
+We follow [imagecorruptions](https://github.com/bethgelab/imagecorruptions) the imagecorruption to generate artificial noise. 
 
 
 ## Train ART Model

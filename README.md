@@ -9,7 +9,7 @@ Beyond offline benchmarks, we further evaluated ART in real-world robotic naviga
 
 ## Quick start
 We public a trained ART in [ART](https://drive.google.com/drive/folders/1uHyOcAY_IFRe1nPAFKV_vqZCAWy5Ywxg?usp=sharing) .
-You can test its robustness against artifacts using examples.png from CDFI dataset.
+You can test its robustness against artifacts using example.jpg from CDFI dataset.
 
 ## Data preparation
 For C3VD dataset, you can follow [C3VD](https://durrlab.github.io/C3VD/).

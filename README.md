@@ -17,7 +17,10 @@ For C3VD dataset, you can follow [C3VD](https://durrlab.github.io/C3VD/).
 
 ## Synthetic artifact generation
 
-We follow [imagecorruptions](https://github.com/bethgelab/imagecorruptions) the imagecorruption to generate artificial noise. 
+We follow [imagecorruptions](https://github.com/bethgelab/imagecorruptions) the imagecorruption to generate artificial noise.
+```bash
+python create_noise.py 
+```
 
 
 ## Train ART Model
